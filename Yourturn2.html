@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grocery List</title>
+    <style>
+        #grocery-input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <input type="text" id="grocery-input" />
+    <button onclick="addItem()">Add Item</button>
+</div>
+<ul id="grocery-list"></ul>
+
+<script>
+    function addItem() {
+        var input = document.getElementById("grocery-input");
+        var item = input.value;
+
+        if (item !== '') {
+            var list = document.getElementById("grocery-list");
+            var listItem = document.createElement("li");
+            listItem.innerText = item;
+            listItem.onclick = function() {
+                this.remove();
+            };
+            list.insertBefore(listItem, list.firstChild);
+
+
+            input.value = '';
+        }
+    }
+</script>
+</body>
+</html>

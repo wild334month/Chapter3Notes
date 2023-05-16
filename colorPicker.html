@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:baackground-color="http://www.w3.org/1999/xhtml"
+      xmlns:background-color="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+<div class="content">
+    <p>Placeholder text</p>
+    <div class="row">
+        <h3>Background</h3>
+        <button id="1">RED</button>
+        <button id="2">GREEN</button>
+        <button id="3">BLUE</button>
+    </div>
+<div class="row">
+    <h3>Text</h3>
+    <button id="4">PINK</button>
+    <button id="5">TEAL</button>
+    <button id="6">PURPLE</button>
+</div>
+    <button id="clear">CLEAR</button>
+</div>
+</div>
+
+<script>
+    const content = document.querySelector('.content');
+    const red = document.getElementById('1');
+    const green = document.getElementById('2');
+    const blue = document.getElementById('3');
+    const pink = document.getElementById('4');
+    const teal = document.getElementById('5');
+    const purple = document.getElementById('6');
+    const clearButton = document.getElementById('clear')
+
+    red.addEventListener('click',function(e){
+        conrenr.classList.add('red');
+    });
+    green.addEventListener('click',function(e){
+        content.classList.add('green');
+    });
+    green.addEventListener('click',function(e){
+        content.classList.add('blue');
+    });
+    green.addEventListener('click',function(e){
+        content.classList.add('pink');
+    });
+    green.addEventListener('click',function(e){
+        content.classList.add('teal');
+    });
+    green.addEventListener('click',function(e){
+        content.classList.add('purple');
+    });
+
+    function removeBGColor(){
+        content.classList.remove('red');
+        content.classList.remove('green');
+        content.classList.remove('blue');
+    }
+    function removeTextColor(){
+        content.classList.remove('pink');
+        content.classList.remove('teal');
+        content.classList.remove('purple');
+    }
+</script>
+<style>.red{
+       baackground-color:red;
+       }
+       .green {
+           background-color: green;
+       }
+    .blue{
+        background-color :blue;
+    }
+    .pink{
+        color:pink;
+    }
+    .teal{
+        color:teal;
+    }
+    .purple{
+        color:purple;
+    }
+</style>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Page</title>
+    <style>
+        #message-container {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" />
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" />
+    <button onclick="sayHello()">Say Hello</button>
+</div>
+<div id="message-container"></div>
+
+<script>
+    function sayHello() {
+        var firstNameInput = document.getElementById("firstName");
+        var lastNameInput = document.getElementById("lastName");
+
+        var firstName = firstNameInput.value;
+        var lastName = lastNameInput.value;
+
+        if (firstName !== '' && lastName !== '') {
+            var message = document.createElement('p');
+            message.innerText = 'Hello, ' + firstName + ' ' + lastName + '!';
+            var container = document.getElementById('message-container');
+            container.insertBefore(message, container.firstChild);
+
+
+            firstNameInput.value = '';
+            lastNameInput.value = '';
+        }
+    }
+</script>
+</body>
+</html>
