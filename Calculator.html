@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin: 20px;
+        }
+
+        input[type="text"] {
+            width: 150px;
+            padding: 5px;
+        }
+
+        select {
+            padding: 5px;
+        }
+
+        .btn {
+            padding: 5px 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Calculator</h2>
+    <input type="text" id="number1" placeholder="Enter first number">
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input type="text" id="number2" placeholder="Enter second number">
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <button class="btn" onclick="clearCalculator()">Clear</button>
+    <div id="history"></div>
+</div>
+
+<script>
+    function calculate() {
+        var number1 = parseFloat(document.getElementById("number1").value);
+        var number2 = parseFloat(document.getElementById("number2").value);
+        var operator = document.getElementById("operator").value;
+
+        var result;
+        var symbol;
+
+        switch (operator) {
+            case "+":
+                result = number1 + number2;
+                symbol = "+";
+                break;
+            case "-":
+                result = number1 - number2;
+                symbol = "-";
+                break;
+            case "*":
+                result = number1 * number2;
+                symbol = "*";
+                break;
+            case "/":
+                result = number1 / number2;
+                symbol = "/";
+                break;
+            case "%":
+                result = number1 % number2;
+                symbol = "%";
+                break;
+            default:
+                result = "";
+                symbol = "";
+        }
+
+        var historyDiv = document.getElementById("history");
+        var historyText = document.createTextNode(number1 + " " + symbol + " " + number2 + " = " + result);
+        var lineBreak = document.createElement("br");
+        historyDiv.appendChild(historyText);
+        historyDiv.appendChild(lineBreak);
+
+        clearInputs();
+    }
+
+    function clearCalculator() {
+        document.getElementById("number1").value = "";
+        document.getElementById("number2").value = "";
+        document.getElementById("operator").value = "";
+        document.getElementById("history").innerHTML = "";
+    }
+
+    function clearInputs() {
+        document.getElementById("number1").value = "";
+        document.getElementById("number2").value = "";
+    }
+</script>
+</body>
+</html>
